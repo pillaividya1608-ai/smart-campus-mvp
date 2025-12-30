@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Smart Info Hub - Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Campus Smart Info Hub</h1>
+    </header>
+
+    <!-- Calendar Section -->
+    <section id="calendar-section">
+        <h2>📅 Events & Deadlines</h2>
+        <div id="calendar-embed">
+            <iframe src="https://calendar.google.com/calendar/embed?src=01774e504cbf899d89e2afe065afe0b355c7e3dce0acd694c2d15c33b489542b%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border:0;" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </section>
+
+    <!-- Announcements Section -->
+    <section id="announcements-section">
+        <h2>📢 Announcements</h2>
+        <div id="host-announcement-panel" class="host-panel">
+            <h3>Manage Announcements (Host Only)</h3>
+            <p>
+                Add, edit, or delete announcements using the official Google Sheet.<br>
+                Changes reflect automatically on this website.<br>
+                Students have view-only access.
+            </p>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSIp2laD55RuKc2tn-m5X8JVMR70mjgfFCLuyB7IirpUDwZQUMp3u_dfd16oNEOmVZfOGpeqktlndg8/pub?output=csv" target="_blank" class="btn">
+                Open Announcement Sheet
+            </a>
+        </div>
+        <div id="announcements-container"></div>
+        <p id="view-only-label">👀 View-only for students</p>
+    </section>
+
+    <!-- Classroom Section -->
+    <section id="classrooms-section">
+        <h2>🏫 Classroom Availability</h2>
+        <table id="classroom-table">
+            <thead>
+                <tr>
+                    <th>Room No</th>
+                    <th>TIMING</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+<script src="script.js"></script>
+</body>
+</html>

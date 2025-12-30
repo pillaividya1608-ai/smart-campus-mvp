@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Smart Info Hub - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Campus Smart Info Hub - Sign Up / Login</h2>
+        <input type="email" id="email" placeholder="Enter your @edu.in email" required>
+        <select id="role">
+            <option value="student">Student</option>
+            <option value="host">Host</option>
+        </select>
+        <input type="password" id="host-code" placeholder="Enter Host Code (if Host)">
+        <button id="loginBtn">Sign Up / Login</button>
+    </div>
+
+    <script>
+        const HOST_SECRET_CODE = "CAMPUS2025"; // change if needed
+
+        document.getElementById("loginBtn").addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const role = document.getElementById("role").value;
+            const hostCode = document.getElementById("host-code").value.trim();
+
+            if (!email.endsWith("@edu.in")) {
+                alert("Please use your @edu.in email");
+                return;
+            }
+
+            if (role === "host" && hostCode !== HOST_SECRET_CODE) {
+                alert("Invalid host code");
+                return;
+            }
+
+            localStorage.setItem("email", email);
+            localStorage.setItem("userRole", role);
+
+            // Redirect to dashboard
+            window.location.href = "dashboard.html";
+        });
+
+        // Hide host code input unless host is selected
+        const roleSelect = document.getElementById("role");
+        const hostInput = document.getElementById("host-code");
+        hostInput.style.display = "none";
+
+        roleSelect.addEventListener("change", () => {
+            if (roleSelect.value === "host") hostInput.style.display = "block";
+            else hostInput.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>
